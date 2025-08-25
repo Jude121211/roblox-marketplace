@@ -47,7 +47,6 @@ document.getElementById("addAccount").addEventListener("click", () => {
     notifications.push(`New listing added: ${username}`);
     updateNotifications();
     fetchListings();
-    // Clear input fields
     document.getElementById("username").value = "";
     document.getElementById("currency").value = "";
     document.getElementById("description").value = "";
@@ -132,13 +131,4 @@ function updateNotifications() {
   notifList.innerHTML = notifications.map(n => `<p>${n}</p>`).join('');
 }
 
-// Event listeners for modals
-notifBtn.addEventListener('click', () => { notifModal.style.display = 'flex'; });
-closeNotif.addEventListener('click', () => { notifModal.style.display = 'none'; });
-window.addEventListener('click', (e) => { if (e.target === notifModal) notifModal.style.display = 'none'; });
-cartBtn.addEventListener('click', () => { cartModal.style.display = 'flex'; });
-closeCart.addEventListener('click', () => { cartModal.style.display = 'none'; });
-window.addEventListener('click', (e) => { if (e.target === cartModal) cartModal.style.display = 'none'; });
-
-// Load listings when page loads
-window.onload = fetchListings;
+// Event
